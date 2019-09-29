@@ -1,3 +1,6 @@
+# Forked from
+https://github.com/jondekerh/nike-snkrs-monitor
+
 # nike snkrs monitor
 This is a lightweight and easy to use script that monitors [nike snkrs](https://www.nike.com/launch/?s=in-stock) for new items and restocks by sizes and posts them to Discord.
 
