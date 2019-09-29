@@ -32,8 +32,9 @@ function findRestocks(arr1, arr2, shallowArr1) {
         } else {
           for (k in arr2[i].productInfo[j].availableSkus) {
             if (arr1[n].productInfo[j].availableSkus[k].available === false && arr2[i].productInfo[j].availableSkus[k].available === true) {
-              var launchid = "";
+              var launchid = "nothing";
               if (arr2[i].productInfo[j].hasOwnProperty('launchView')) {
+                console.log(arr2[i].productInfo[j].launchView)
                 launchid = arr2[i].productInfo[j].launchView.id;
               }
               var sizeVaraint = arr2[i].productInfo[j].skus[k].id;
@@ -71,7 +72,6 @@ function findNewItems(arr2, shallowArr1) {
       var launchid = "";
       var link = arr2[i].publishedContent.properties.seo.slug
       if (arr2[i].productInfo[0].hasOwnProperty('launchView')) {
-
         launchid = arr2[i].productInfo[0].launchView.id;
       }
       for (j in arr2[i].productInfo[0].availableSkus){
@@ -206,12 +206,13 @@ function updates(arr) {
 function monitor() {
 
   var completeArr = [];
-
+  var debugArr = [];
   //long chain of promises to make sure the 4 api calls happen asynchronously
   rp.get(nikeURLs.urls[0])
   .then((body) => {
     let json = JSON.parse(body);
     for (x in json.objects) {
+        debugArr.push(json.objects[x]);
       if(!json.objects[x].publishedContent.properties.custom.restricted) {
         completeArr.push(json.objects[x]);
       }
@@ -249,6 +250,9 @@ function monitor() {
         completeArr.push(json.objects[x]);
       }
     }
+    console.log('')
+    console.log('NEW DEBUG')
+    console.log(debugArr)
     return completeArr;
   })
   .then ((completeArr) => {

@@ -17,7 +17,9 @@ for (i in currentStock) {
 describe('New item and restock tests', function() {
 
   it('finds the correct amount of new items', function(done) {
-    assert.lengthOf(monitor.findNewItems(newStock, currentShallow), 2, 'array has a length of 2');
+    var actual = monitor.findNewItems(newStock, currentShallow)
+    assert.lengthOf(actual, 2, 'array has a length of 2');
+    console.log(actual[0])
     done();
   })
 
