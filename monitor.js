@@ -252,7 +252,20 @@ function monitor() {
     }
     console.log('')
     console.log('NEW DEBUG')
-    console.log(debugArr)
+    for (i in debugArr){
+    console.log('')
+    console.log(i)
+    console.log("All Info")
+    console.log(debugArr[i].productInfo)
+    console.log("MerchProduct : ")
+    console.log(debugArr[i].productInfo[0].merchProduct)
+    console.log("Skus : ")
+    console.log(debugArr[i].productInfo[0].skus)
+    console.log("Product Content : ")
+    console.log(debugArr[i].productInfo[0].productContent)
+    console.log("LaunchView : ")
+    console.log(debugArr[i].productInfo[0].launchView)
+  }
     return completeArr;
   })
   .then ((completeArr) => {

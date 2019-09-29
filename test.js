@@ -6,6 +6,7 @@ var assert = require('chai').assert;
 
 var currentStock = testInputs.threeObjects;
 var newStock = testInputs.fiveObjects;
+var webResponse = testInputs.webObjects;
 var currentShallow = [];
 
 //make currentShallow
@@ -28,4 +29,10 @@ describe('New item and restock tests', function() {
     done();
   })
 
+//   console.log("WEB RESPONSE")
+//   for (i in webResponse){
+//   console.log('')
+//   console.log(webResponse[i].id)
+//   console.log(webResponse[i].productInfo)
+// }
 });
